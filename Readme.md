@@ -2,12 +2,6 @@
 
 Esta API proporciona una interfaz para crear, Autenticacion y listado de usuarios.
 
-## Reglas de Negocio
-
-- Solo los usuarios autenticados pueden crear, modificar y eliminar sus propios posts.
-- Los usuarios pueden listar todos los usuarios y sus posts correspondientes.
-- No se permite a un usuario modificar o eliminar posts que pertenezcan a otro usuario.
-- Todos los endpoints relacionados con las operaciones de posts están protegidos y requieren autenticación.
 
 ## Requisitos
 
