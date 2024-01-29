@@ -13,19 +13,19 @@ public class IncorrectOrderRequestException extends RuntimeException {
 		// TODO Auto-generated constructor stub
 	}
 
-	public IncorrectOrderRequestException(String message, Throwable cause, boolean enableSuppression,
+	public IncorrectOrderRequestException(String mensaje, Throwable cause, boolean enableSuppression,
 			boolean writableStackTrace) {
-		super(message, cause, enableSuppression, writableStackTrace);
+		super(mensaje, cause, enableSuppression, writableStackTrace);
 		// TODO Auto-generated constructor stub
 	}
 
-	public IncorrectOrderRequestException(String message, Throwable cause) {
-		super(message, cause);
+	public IncorrectOrderRequestException(String mensaje, Throwable cause) {
+		super(mensaje, cause);
 		// TODO Auto-generated constructor stub
 	}
 
-	public IncorrectOrderRequestException(String message) {
-		super(message);
+	public IncorrectOrderRequestException(String mensaje) {
+		super(mensaje);
 		// TODO Auto-generated constructor stub
 	}
 

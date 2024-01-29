@@ -60,7 +60,7 @@ public class UserService {
 
     public LoginResponse login(LoginRequest request){
         try {
-            Users user=userRepository.findByUsername(request.getUsername())
+            Users user=userRepository.findByEmail(request.getUsername())
                     .orElseThrow(()->new IncorrectOrderRequestException("Usuario o password incorrecto"));
 
             if(!passwordEncoder.matches(request.getPassword(),user.getPassword()))

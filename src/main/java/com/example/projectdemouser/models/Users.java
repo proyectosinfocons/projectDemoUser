@@ -9,20 +9,21 @@ import java.io.Serializable;
 import java.sql.Blob;
 import java.util.Date;
 import javax.persistence.*;
-
+import javax.validation.constraints.NotNull;
 
 
 @Entity
-@Table(name = "users")
+
+@Table(name = "users", uniqueConstraints = {@UniqueConstraint(columnNames = "email")})
 public class Users extends Auditable implements Serializable{
 
     @Id
     private String id;
 
+
     private String username;
 
 
-    @Email
     private String email;
 
     private String password;
@@ -31,6 +32,7 @@ public class Users extends Auditable implements Serializable{
 
     @JsonIgnore
     private String phones;
+
 
     private boolean isactive;
 

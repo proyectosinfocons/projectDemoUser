@@ -9,6 +9,12 @@ public class UserValidator {
             throw new IncorrectOrderRequestException("El nombre de usuario es requerido");
         }
 
+        if(user.getEmail()==null || user.getEmail().trim().isEmpty()){
+            throw new IncorrectOrderRequestException("El correo es requerido");
+        }
+        if(user.getPassword()==null || user.getPassword().trim().isEmpty()){
+            throw new IncorrectOrderRequestException("El password es requerido");
+        }
         if(user.getUsername().length()>30){
             throw new IncorrectOrderRequestException("El nombre de usuario es muy largo (max 30)");
         }

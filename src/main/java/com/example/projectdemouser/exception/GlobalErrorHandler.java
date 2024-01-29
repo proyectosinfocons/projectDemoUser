@@ -19,13 +19,13 @@ public class GlobalErrorHandler extends ResponseEntityExceptionHandler {
     @Autowired
     UsersRepository userRepository;
 
-    @ExceptionHandler(UserNotFoundException.class)
-    public ResponseEntity<UserErrorResponse> handleModelNotFoundException(UserNotFoundException ex) {
-        String response= ex.getMessage();
-        if (!response.matches(EXP_EMAIL)) {
-            UserErrorResponse er = new UserErrorResponse("mensaje de error");
-            return new ResponseEntity<>(er, HttpStatus.UNPROCESSABLE_ENTITY);
-        }
-        return null;
-    }
+//    @ExceptionHandler(UserNotFoundException.class)
+//    public ResponseEntity<UserErrorResponse> handleModelNotFoundException(UserNotFoundException ex) {
+//        String response= ex.getMessage();
+//            if (!response.matches(EXP_EMAIL)) {
+//                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(new UserErrorResponse("mensaje de error"));
+//            }
+//
+//        return null;
+//    }
 }

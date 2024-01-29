@@ -55,15 +55,13 @@ public class UserController {
             if (!request.getEmail().matches(EXP_EMAIL)) {
                 return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(new UserErrorResponse("mensaje de error"));
             }
-            if (!enc.getEmail().matches(EXP_EMAIL)) {
-                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(new UserErrorResponse("mensaje de error"));
-            }
                 Users pru=new Users();
                 pru.setId(UUID.randomUUID().toString());
                 pru.setPassword(request.getPassword());
                 pru.setUsername(request.getName());
                 pru.setPhones(request.getPhones().toString());
                 pru.setEmail(request.getEmail());
+                pru.setIsactive(true);
                 Users prueba = userService.createUser(pru);
                 return ResponseEntity.ok(prueba);
         }
