@@ -39,7 +39,7 @@ La API proporciona los siguientes endpoints:
 ### Usuarios
 
 - `POST /users/` - Crear un nuevo usuario.
-- `POST /login/users/` - Autenticacion y generacion del token de acceso.
+- `POST /login/users/` - Autenticacion, generacion y actualizacion del token de acceso.
 - `GET /users/` - Listar todos los usuarios.
 
 ## Pruebas con Postman
