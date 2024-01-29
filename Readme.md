@@ -1,6 +1,6 @@
-# API de Usuarios y Posts
+# API de Usuarios
 
-Esta API proporciona una interfaz para crear, modificar, eliminar y listar usuarios y sus posts.
+Esta API proporciona una interfaz para crear, Autenticacion y listado de usuarios.
 
 ## Reglas de Negocio
 
