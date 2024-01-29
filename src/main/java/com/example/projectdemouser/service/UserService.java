@@ -63,12 +63,12 @@ public class UserService {
             Users user=userRepository.findByEmail(request.getUsername())
                     .orElseThrow(()->new IncorrectOrderRequestException("Usuario o password incorrecto"));
 
-            if(!passwordEncoder.matches(request.getPassword(),user.getPassword())) {
+            if(user.isIsactive()==false)
+                throw new IncorrectOrderRequestException("El Usuario esta inactivo");
+
+            if(!passwordEncoder.matches(request.getPassword(),user.getPassword()))
                 throw new IncorrectOrderRequestException("Usuario o password incorrectos");
-            }
-            if(user.isIsactive()==false){
-                throw new IncorrectOrderRequestException("El usuario no esta activo");
-            }
+
             String token =createToken(user);
 
             user.setToken(token);

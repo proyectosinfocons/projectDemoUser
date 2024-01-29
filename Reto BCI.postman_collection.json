@@ -20,14 +20,13 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8080/users/login",
+					"raw": "localhost:8080/users",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"users",
-						"login"
+						"users"
 					]
 				}
 			},
