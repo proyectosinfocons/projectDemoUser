@@ -61,7 +61,6 @@ public class SecurityConfig  extends WebSecurityConfigurerAdapter {
 
                 .antMatchers(
                         "/users/**",
-                        "/**",
                         "/h2-console/**"
                 )
                 .permitAll()

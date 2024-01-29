@@ -66,7 +66,7 @@ public class DataLoader implements CommandLineRunner {
             pru.setUsername(request.getName());
             pru.setPhones(request.getPhones().toString());
             pru.setEmail(request.getEmail());
-            pru.setIsactive(true);
+            pru.setIsactive(false);
             Users prueba = userService.createUser(pru);
              ResponseEntity.ok(prueba);
         }
