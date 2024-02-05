@@ -15,7 +15,7 @@ public class RequestUser {
 
 
 
-    @Email
+
     private String email;
 
     private String password;

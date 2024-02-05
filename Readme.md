@@ -26,6 +26,20 @@ Para ejecutar este proyecto se necesita tener instalado:
 
 5. La aplicación ahora estará disponible en `localhost:8080`.
 
+### O Pude ser Tambien Levantar la Aplicación en un ambiente local
+
+1. Clone el repositorio a su máquina local.
+2. Navegue a la raíz del proyecto donde se encuentra el archivo pom.xml.
+3. Ejecute el comando para descargar las dependencias en la terminal:
+   ```bash
+   mvn clean install
+   
+4. Luego ejecute el comando:
+
+    ```bash
+   mvn spring-boot:run
+   
+
 ## Endpoints de la API
 
 La API proporciona los siguientes endpoints:

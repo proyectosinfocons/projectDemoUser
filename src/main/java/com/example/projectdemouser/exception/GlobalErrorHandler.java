@@ -3,10 +3,14 @@ package com.example.projectdemouser.exception;
 import com.example.projectdemouser.models.Users;
 import com.example.projectdemouser.repository.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.FieldError;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 import java.util.HashMap;
 import java.util.Map;
@@ -19,13 +23,14 @@ public class GlobalErrorHandler extends ResponseEntityExceptionHandler {
     @Autowired
     UsersRepository userRepository;
 
-//    @ExceptionHandler(UserNotFoundException.class)
-//    public ResponseEntity<UserErrorResponse> handleModelNotFoundException(UserNotFoundException ex) {
-//        String response= ex.getMessage();
-//            if (!response.matches(EXP_EMAIL)) {
-//                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(new UserErrorResponse("mensaje de error"));
-//            }
-//
-//        return null;
-//    }
+    @Override
+    protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
+        Map<String, String> errors = new HashMap<>();
+        ex.getBindingResult().getAllErrors().forEach((error) -> {
+            String fieldName = ((FieldError) error).getField();
+            String errorMessage = error.getDefaultMessage();
+            errors.put(fieldName, errorMessage);
+        });
+        return new ResponseEntity<>(errors, HttpStatus.BAD_REQUEST);
+    }
 }

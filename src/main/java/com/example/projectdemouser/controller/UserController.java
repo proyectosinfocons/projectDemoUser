@@ -17,6 +17,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.time.Instant;
 import java.util.List;
 import java.util.UUID;
@@ -41,7 +42,7 @@ public class UserController {
     private UsersRepository usersRepository;
 
     @PostMapping
-    public ResponseEntity<?> registerUser(@RequestBody RequestUser request) {
+    public ResponseEntity<?> registerUser(@Valid @RequestBody RequestUser request) {
         Users enc = usersRepository.findByEmail(request.getEmail()).orElse(null);
         if (enc != null) {
             if (enc.getEmail().equals(request.getEmail())) {
@@ -70,7 +71,7 @@ public class UserController {
 
 
     @PostMapping("/login")
-    public ResponseEntity<LoginResponse> login(@RequestBody LoginRequest request){
+    public ResponseEntity<LoginResponse> login(@Valid @RequestBody LoginRequest request){
         LoginResponse response=userService.login(request);
         return new ResponseEntity<LoginResponse>(response, HttpStatus.OK);
     }
